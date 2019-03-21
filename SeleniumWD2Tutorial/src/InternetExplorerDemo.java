@@ -9,7 +9,7 @@ public class InternetExplorerDemo {
 		String baseUrl = "http://www.google.com";
 		WebDriver driver;
 		
-		//System.setProperty("webdriver.ie.driver", "E:\\01_UDEMY\\SeleniumCourse\\Libraries\\IE\\IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", "E:\\01_UDEMY\\SeleniumCourse\\Libraries\\IE\\IEDriverServer.exe");
 		
 		driver = new InternetExplorerDriver();
 		driver.get(baseUrl);
