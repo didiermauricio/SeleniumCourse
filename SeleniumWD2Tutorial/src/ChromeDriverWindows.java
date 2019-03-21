@@ -8,7 +8,7 @@ public class ChromeDriverWindows {
 		String baseUrl = "http://www.google.com";
 		WebDriver driver;
 		
-		System.setProperty("webdriver.gecko.driver", "E:\\01_UDEMY\\SeleniumCourse\\Libraries\\Gheko\\geckodriver.exe");
+		//System.setProperty("webdriver.gecko.driver", "E:\\01_UDEMY\\SeleniumCourse\\Libraries\\Gheko\\geckodriver.exe");
 		driver = new ChromeDriver();
 		driver.get(baseUrl);
 	}
