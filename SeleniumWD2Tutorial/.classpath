@@ -9,5 +9,8 @@
 	<classpathentry kind="lib" path="E:/03_AutomationTesting/SeleniumWebDriver/libs/okio-1.14.0.jar"/>
 	<classpathentry kind="lib" path="E:/03_AutomationTesting/SeleniumWebDriver/client-combined-3.141.59.jar" sourcepath="E:/03_AutomationTesting/SeleniumWebDriver/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="E:/03_AutomationTesting/SeleniumWebDriver/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="E:/01_UDEMY/SeleniumCourse/Libraries/Junit/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="E:/01_UDEMY/SeleniumCourse/Libraries/Junit/hamcrest-integration-1.3.jar"/>
+	<classpathentry kind="lib" path="E:/01_UDEMY/SeleniumCourse/Libraries/Junit/hamcrest-core-1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
