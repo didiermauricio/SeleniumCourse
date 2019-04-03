@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class CheckElementStatus {
+public class UsingRadioButtonElement {
 
 	WebDriver driver;
 	String baseUrl;
@@ -18,7 +18,7 @@ public class CheckElementStatus {
 	@Before
 	public void setUp() throws Exception {
 		
-		baseUrl = "http://google.com/";
+		baseUrl = "https://letskodeit.teachable.com/p/practice";
 		
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -36,18 +36,16 @@ public class CheckElementStatus {
 	public void test() {
 		
 		driver.get(baseUrl);
-		driver.findElement(By.xpath("/html//form[@id='tsf']//div[@class='a4bIc']/input[@role='combobox']")).sendKeys("Millos vence al real madrid");
-		WebElement searchBox =  driver.findElement(By.xpath("//div[@class='FPdoLc VlcLAe']//input[@value='Buscar con Google']"));
 		
+		WebElement bmwRadioButton = driver.findElement(By.xpath("//input[@id='bmwradio']"));
+		WebElement benzRadioButton = driver.findElement(By.xpath("//input[@id='benzradio']"));
+		WebElement hondaRadioButton = driver.findElement(By.xpath("//input[@id='hondaradio']"));
 		
-		if(searchBox.isDisplayed() && searchBox.isSelected())
+		if(!bmwRadioButton.isSelected()&&!benzRadioButton.isSelected()&&!hondaRadioButton.isSelected()) 
 		{
-			driver.findElement(By.xpath("/html//form[@id='tsf']//div[@class='A8SBwf emcav']/div[@class='UUbT9']//input[@name='btnK']")).click();;
-			System.out.println("Element found and used");
-		}
-		else
-		{
-			System.out.println("Element is not ready for working");
+			bmwRadioButton.click();
+			benzRadioButton.click();
+			hondaRadioButton.click();
 		}
 		
 	}
