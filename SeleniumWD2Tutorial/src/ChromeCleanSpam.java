@@ -9,13 +9,11 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class UsingExplicitWait {
+public class ChromeCleanSpam {
 
 	WebDriver driver;
 	String baseUrl;
@@ -23,11 +21,12 @@ public class UsingExplicitWait {
 	@Before
 	public void setUp() throws Exception {
 		
-		baseUrl = "https://letskodeit.teachable.com/p/practice";
+		baseUrl = "https://mail.google.com/mail/u/0/#inbox/FMfcgxwCgCVwWvsVVVWzzkfgsrQrSZMMww";
 		
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-						
+				
 	}
 
 	@After
@@ -39,12 +38,6 @@ public class UsingExplicitWait {
 	@Test
 	public void test() throws InterruptedException {
 		driver.get(baseUrl);
-		
-		driver.findElement(By.xpath("//a[@class='navbar-link fedora-navbar-link']")).click();
-		
-		WebDriverWait wait = new WebDriverWait(driver, 3);
-		WebElement elementFind = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user_email")));
-		elementFind.sendKeys("Didier");
 		
 		
 	}

@@ -1,4 +1,8 @@
+package Wait;
+import java.awt.List;
 import java.util.concurrent.TimeUnit;
+
+import javax.xml.xpath.XPath;
 
 import org.junit.After;
 import org.junit.Before;
@@ -7,12 +11,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ExplicitWaitWithUtilityDemo2 {
+public class UsingExplicitWait {
 
 	WebDriver driver;
 	String baseUrl;
-	WaitTypes wt;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -20,9 +27,8 @@ public class ExplicitWaitWithUtilityDemo2 {
 		baseUrl = "https://letskodeit.teachable.com/p/practice";
 		
 		driver = new FirefoxDriver();
-		wt = new WaitTypes(driver);
 		driver.manage().window().maximize();
-				
+						
 	}
 
 	@After
@@ -32,18 +38,16 @@ public class ExplicitWaitWithUtilityDemo2 {
 	}
 
 	@Test
-	public void test() {
-		
+	public void test() throws InterruptedException {
 		driver.get(baseUrl);
-		WebElement loginLink = driver.findElement(By.linkText("Login"));
-		loginLink.click();
 		
-		WebElement emailField = wt.waitForElement(By.id("user_email"), 5);
-		emailField.sendKeys("test");
+		driver.findElement(By.xpath("//a[@class='navbar-link fedora-navbar-link']")).click();
 		
-		
+		WebDriverWait wait = new WebDriverWait(driver, 3);
+		WebElement elementFind = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user_email")));
+		elementFind.sendKeys("Didier");
 		
 		
 	}
-	
+
 }

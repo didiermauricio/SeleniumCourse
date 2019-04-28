@@ -1,3 +1,4 @@
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -8,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ExplicitWaitWithUtilityDemo {
+import Wait.WaitTypes;
+
+public class DatePickerExample {
 
 	WebDriver driver;
 	String baseUrl;
@@ -17,7 +20,7 @@ public class ExplicitWaitWithUtilityDemo {
 	@Before
 	public void setUp() throws Exception {
 		
-		baseUrl = "https://letskodeit.teachable.com/p/practice";
+		baseUrl = "https://www.iberia.com/";
 		
 		driver = new FirefoxDriver();
 		wt = new WaitTypes(driver);
@@ -28,20 +31,17 @@ public class ExplicitWaitWithUtilityDemo {
 	@After
 	public void tearDown() throws Exception {
 		Thread.sleep(3000);
-		driver.quit();
+		//driver.quit();
 	}
 
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 		
 		driver.get(baseUrl);
-		WebElement loginLink = driver.findElement(By.linkText("Login"));
-		loginLink.click();
+		WaitTypes wt = new WaitTypes(driver);
 		
-		WebElement emailField = wt.waitForElement(By.id("user_email"), 5);
-		emailField.sendKeys("test");
-		
-		
+		wt.clickWhenReady(By.xpath("//label[contains(text(),'Fecha ida')]"),5);
+		wt.clickWhenReady(By.xpath("/html[1]/body[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/fieldset[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[4]/a[1]"),10);
 		
 		
 	}
